@@ -76,14 +76,19 @@ router.get('/:id', (req, res) => {
   })
 })
 
-router.get('/buscardescripcion/:palabra', (req, res, next) => {
+//Busqueda por palabra en titulo y descripcion
+router.get('/buscarEmpleo/:palabra', (req, res, next) => {
   var palabra = req.params.palabra;
-  Empleo.find(
-      { descripcion: { $regex: '.*' + palabra + '.*' } },
-      function(err,docs) {
-        return res.json(docs)
-      }
-  );
+  Empleo.find({
+      "$or": [
+          { titulo: { '$regex': palabra, '$options': 'i' } },
+          { descripcion: { '$regex': palabra, '$options': 'i' } }
+      ]
+  }).then((users) => {
+      res.json(users);
+  });
+
+  
 })
 
 
