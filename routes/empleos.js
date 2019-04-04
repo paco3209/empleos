@@ -30,7 +30,7 @@ const upload = multer({
   fileFilter: fileFilter
 });
 
-/* GET users listing. */
+/*Guardar empleo */
 router.post('/nuevoEmpleo',upload.single('productImage'), (req, res,next) => {
   var nuevoEmpleo = new Empleo({
     titulo: req.body.titulo,
@@ -58,5 +58,23 @@ router.post('/nuevoEmpleo',upload.single('productImage'), (req, res,next) => {
 
 
 });
+
+
+router.get('/', (req, res) => {
+  Empleo.find()
+    .then (empleos => {
+      return res.json(empleos);
+    })
+
+});
+
+
+router.get('/:id', (req, res) => {
+  var empleoId = req.params.id;
+  Empleo.findById(empleoId, (err, empleo) => {
+    return res.json(empleo);
+  })
+})
+
 
 module.exports = router;
