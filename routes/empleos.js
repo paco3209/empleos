@@ -76,5 +76,16 @@ router.get('/:id', (req, res) => {
   })
 })
 
+router.get('/buscardescripcion/:palabra', (req, res, next) => {
+  var palabra = req.params.palabra;
+  Empleo.find(
+      { descripcion: { $regex: '.*' + palabra + '.*' } },
+      function(err,docs) {
+        return res.json(docs)
+      }
+  );
+})
+
+
 
 module.exports = router;
