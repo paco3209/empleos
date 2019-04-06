@@ -14,10 +14,10 @@ const Navbar = (props) => {
       <div className="collapse navbar-collapse" id="navbarResponsive">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item mx-0 mx-lg-1">
-            <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Todos los empleos</a>
+            <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/">Todos los empleos</a>
           </li>
           <li className="nav-item mx-0 mx-lg-1">
-            <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Publicar empleo</a>
+            <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/publicarEmpleo">Publicar Empleo</a>
           </li>
           <li className="nav-item mx-0 mx-lg-1">
             <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>

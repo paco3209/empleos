@@ -1,8 +1,11 @@
 import axios from 'axios';
 import { LISTAR_EMPLEOS, NUEVO_EMPLEO,EMPLEO_UNICO  } from './types';
 
+
+
+
 export const listadoEmpleos = () => dispatch =>{
-  axios.get('/empleos/')
+  axios.get('/empleos')
     .then(res => {
       console.log(res.data);
       dispatch({
@@ -12,17 +15,17 @@ export const listadoEmpleos = () => dispatch =>{
     })
 }
 
-export const nuevaNoticia = (noticia) => dispatch => {
-  console.log(noticia);
-  axios.post('/empleos/', noticia)
-    .then(res => dispatch ({
+export const nuevoEmpleo = (noticia) => dispatch => {
+
+  axios.post('/empleos/nuevoEmpleo', noticia)
+    .then(res => {dispatch ({
       type: NUEVO_EMPLEO,
       payload: res.data
-    }))
+    })})
 }
 
 export const buscarEmpleo = (id) => dispatch => {
-  axios.get(`/api/users/cvu/${id}`)
+  axios.get(`/empleos/empleo/${id}`)
     .then(res => {
       dispatch({
         type: EMPLEO_UNICO,

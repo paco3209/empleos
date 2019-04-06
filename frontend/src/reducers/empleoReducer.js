@@ -13,6 +13,17 @@ export default function(state = initialState, action ) {
                 listadoEmpleo:action.payload
 
             }
+        case NUEVO_EMPLEO:
+              return{
+                ...state,
+                empleoUnico:action.payload
+              }
+        case EMPLEO_UNICO:
+              return{
+                ...state,
+                empleoUnico:action.payload
+              }
+          break;
         default:
             return state;
     }

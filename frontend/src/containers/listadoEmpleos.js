@@ -31,20 +31,21 @@ class listadoEmpleo extends React.Component {
 
   render () {
     const listado = this.props.listado;
-    console.log(listado);
+    const cantidad = listado.length;
+
     return(
   <div className="PaginaPrincipal">
     <Searchbar />
     <div className="container">
         <div>
-          <h2>Listado Empleos</h2>
-
+          <h3 className="avisos">{cantidad} avisos de trabajos encontrados en Argentina</h3>
         </div>
+        <hr />
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
               {listado.map(data => (
                 <div className="post-preview" key={data._id}>
-                  <a href="post.html">
+                  <a href={"/empleo/" + data._id}>
                     <h2 className="post-title">
                       {data.titulo}
                     </h2>

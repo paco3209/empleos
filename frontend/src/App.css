@@ -434,3 +434,24 @@ header.masthead {
     font-size: 36px;
   }
 }
+
+.avisos{
+  font-weight: normal;
+  font-size: 30px;
+  color: #9e9b93;
+  margin-top: 10px;
+
+}
+
+#contact{
+  margin-top: 50px;
+}
+
+.botones{
+  margin-top: 20px;
+}
+
+
+.pruebaboton{
+  margin-top: 50px;
+}

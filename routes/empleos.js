@@ -61,7 +61,7 @@ router.post('/nuevoEmpleo',upload.single('productImage'), (req, res,next) => {
 
 
 router.get('/', (req, res) => {
-  Empleo.find()
+  Empleo.find().sort({date:-1})
     .then (empleos => {
       return res.json(empleos);
     })
@@ -69,7 +69,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/:id', (req, res) => {
+router.get('/empleo/:id', (req, res) => {
   var empleoId = req.params.id;
   Empleo.findById(empleoId, (err, empleo) => {
     return res.json(empleo);
@@ -88,7 +88,7 @@ router.get('/buscarEmpleo/:palabra', (req, res, next) => {
       res.json(users);
   });
 
-  
+
 })
 
 

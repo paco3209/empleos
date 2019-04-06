@@ -6,6 +6,8 @@ import createHistory from 'history/createBrowserHistory';
 import Navbar from './components/NavBar'
 
 import ListaEmpleos from './containers/listadoEmpleos'
+import FormularioEmpleo from './containers/formularioEmpleo'
+import Empleo from './containers/empleo'
 import './App.css';
 
 const history = createHistory();
@@ -21,7 +23,8 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/" component={ ListaEmpleos } />
-
+            <Route exact path="/publicarEmpleo" component={ FormularioEmpleo } />
+            <Route exact path="/empleo/:id" component={ Empleo } />
           </Switch>
 
 
