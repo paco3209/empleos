@@ -20,9 +20,10 @@ class FormularioEmpleo extends React.Component {
         website: values.website,
         comoaplicar: values.comoaplicar,
         tipoempleo: values.tipoempleo,
-        imagePath:values.imagePath
+        
       }
-      this.props.nuevoEmpleo(Empleo);
+      this.props.nuevoEmpleo(Empleo)
+
 
   }
   render () {

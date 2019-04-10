@@ -2,8 +2,6 @@ import axios from 'axios';
 import { LISTAR_EMPLEOS, NUEVO_EMPLEO,EMPLEO_UNICO  } from './types';
 
 
-
-
 export const listadoEmpleos = () => dispatch =>{
   axios.get('/empleos')
     .then(res => {
@@ -18,10 +16,14 @@ export const listadoEmpleos = () => dispatch =>{
 export const nuevoEmpleo = (noticia) => dispatch => {
 
   axios.post('/empleos/nuevoEmpleo', noticia)
-    .then(res => {dispatch ({
-      type: NUEVO_EMPLEO,
-      payload: res.data
-    })})
+    .then(function (response) {
+        console.log(response);
+        })
+    .catch(function (error) {
+      console.log(error);
+});
+
+
 }
 
 export const buscarEmpleo = (id) => dispatch => {

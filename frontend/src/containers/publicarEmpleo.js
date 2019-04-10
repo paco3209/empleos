@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 class PublicarEmpleo extends React.Component {
   render () {
     return(
-      <div></div>
+
+        <button type="button" name="button" className="pruebaboton">insertar</button>
+      
     )
 
   }

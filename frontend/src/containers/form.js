@@ -109,12 +109,13 @@ const SimpleForm = props => {
               <Field
                 name="descripcion"
                 component="textarea"
-                id="exampleFormControlTextarea1"
+                id="summernote"
                 className="form-control"
-                rows="3"
+                rows="9"
                 placeholder="Descripcion de empleo"
                 required
                  />
+
            </div>
 
 
@@ -205,11 +206,12 @@ const SimpleForm = props => {
         </div>
       </form>
     </div>
+
   </section>
   )
 }
 
 export default reduxForm({
-  form: 'simple',
+  form: 'simple'
 
 })(SimpleForm)

@@ -31,7 +31,7 @@ const upload = multer({
 });
 
 /*Guardar empleo */
-router.post('/nuevoEmpleo',upload.single('productImage'), (req, res,next) => {
+router.post('/nuevoEmpleo',upload.single('imagePath'), (req, res,next) => {
   var nuevoEmpleo = new Empleo({
     titulo: req.body.titulo,
     descripcion: req.body.descripcion,
@@ -40,9 +40,10 @@ router.post('/nuevoEmpleo',upload.single('productImage'), (req, res,next) => {
     website: req.body.website,
     comoaplicar: req.body.comoaplicar,
     tipoempleo: req.body.tipoempleo,
-    imagePath: req.file.path
+    //imagePath: req.file.path
 
   })
+
 
   nuevoEmpleo.save().then((newPost) => {
     return res.status(200).json({

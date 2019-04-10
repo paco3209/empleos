@@ -455,3 +455,20 @@ header.masthead {
 .pruebaboton{
   margin-top: 50px;
 }
+
+.nombreEmpresa{
+  color: #999999;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+}
+
+
+.comoaplicar{
+  background-color: #EEEEEE;
+  border-color: black;
+  border-radius: 25% 10%;
+  border-style: solid;
+  padding: 10px;
+  font-size: 15px;
+  margin: 20px;
+}
