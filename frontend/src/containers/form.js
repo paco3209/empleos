@@ -1,9 +1,12 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import EditorField from "./EditorField";
 
 const UploadFile = ({ input: {value: omitValue, ...inputProps }, meta: omitMeta, ...props }) => (
   <input type='file' {...inputProps} {...props} />
 );
+
+
 
 const SimpleForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
@@ -106,16 +109,15 @@ const SimpleForm = props => {
           <div className="col">
             <label for="exampleFormControlTextarea1">Descripcion</label>
             <div>
-              <Field
-                name="descripcion"
-                component="textarea"
-                id="summernote"
-                className="form-control"
-                rows="9"
-                placeholder="Descripcion de empleo"
-                required
-                 />
+              <EditorField
+        key="field"
+        name="descripcion"
+        id="inputEditorText"
+        disabled={false}
+        placeholder="Type here"
+        
 
+      />
            </div>
 
 

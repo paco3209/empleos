@@ -42,7 +42,7 @@ class Empleo extends React.Component {
         <div className="row">
           <div className="col">
             <div><h3>Descripcion</h3></div>
-            {empleo.descripcion}
+            <div dangerouslySetInnerHTML={{__html: empleo.descripcion}} />
           </div>
           <div className="col" >
 

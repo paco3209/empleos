@@ -9,6 +9,7 @@ import ListaEmpleos from './containers/listadoEmpleos'
 import FormularioEmpleo from './containers/formularioEmpleo'
 import Empleo from './containers/empleo'
 import './App.css';
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const history = createHistory();
 

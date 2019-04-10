@@ -4,9 +4,13 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "draft-js": "^0.10.5",
+    "draftjs-to-html": "^0.8.4",
     "moment": "^2.24.0",
+    "node-emoji": "^1.10.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-draft-wysiwyg": "^1.13.2",
     "react-moment": "^0.8.4",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
@@ -22,11 +26,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy" : "http://localhost:3000/",
+  "proxy": "http://localhost:3000/",
   "browserslist": [
     ">0.2%",
     "not dead",

@@ -472,3 +472,8 @@ header.masthead {
   font-size: 15px;
   margin: 20px;
 }
+
+.formularioTextarea{
+  border: '1px solid gray';
+  
+}
