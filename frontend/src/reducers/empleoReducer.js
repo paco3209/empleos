@@ -4,7 +4,8 @@ const initialState = {
     listadoEmpleo: [],
     empleoUnico: {},
     current: 1,
-    pages: 0
+    pages: 0,
+    totalPages: 0
 }
 
 export default function(state = initialState, action ) {
@@ -14,7 +15,8 @@ export default function(state = initialState, action ) {
                 ...state,
                 listadoEmpleo: [...state.listadoEmpleo, ...action.payload.empleos]  ,
                 current: action.payload.current,
-                pages: action.payload.pages
+                pages: action.payload.pages,
+                totalPages: action.payload.total
 
 
             }

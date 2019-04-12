@@ -35,7 +35,7 @@ class listadoEmpleo extends React.Component {
   console.log(current);
   console.log(pages);
 
-  
+
 
   if(current === pages){
     this.setState({
@@ -55,8 +55,8 @@ class listadoEmpleo extends React.Component {
   ;
     const listado = this.props.listado;
     const items = [];
-    const cantidad = 20;
-
+    const cantidad = this.props.total;
+    console.log(cantidad);
 
     listado.map(data => {
       items.push(
@@ -110,7 +110,8 @@ const mapStateToProps = (state) => ({
 
     listado: state.empleos.listadoEmpleo,
     current: state.empleos.current,
-    pages: state.empleos.pages
+    pages: state.empleos.pages,
+    total: state.empleos.totalPages
 })
 
 export  default connect(mapStateToProps, { listadoEmpleos })(listadoEmpleo);
