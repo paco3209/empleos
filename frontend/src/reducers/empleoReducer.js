@@ -2,7 +2,9 @@ import { LISTAR_EMPLEOS, NUEVO_EMPLEO,EMPLEO_UNICO  } from '../actions/types';
 
 const initialState = {
     listadoEmpleo: [],
-    empleoUnico: {}
+    empleoUnico: {},
+    current: 1,
+    pages: 0
 }
 
 export default function(state = initialState, action ) {
@@ -10,7 +12,10 @@ export default function(state = initialState, action ) {
         case LISTAR_EMPLEOS:
             return {
                 ...state,
-                listadoEmpleo:action.payload
+                listadoEmpleo: [...state.listadoEmpleo, ...action.payload.empleos]  ,
+                current: action.payload.current,
+                pages: action.payload.pages
+
 
             }
         case NUEVO_EMPLEO:

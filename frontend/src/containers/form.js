@@ -115,7 +115,7 @@ const SimpleForm = props => {
         id="inputEditorText"
         disabled={false}
         placeholder="Type here"
-        
+
 
       />
            </div>
@@ -182,11 +182,7 @@ const SimpleForm = props => {
             />
           </div>
         </div>
-        <div className="row">
-          <div className="col">
-            <label>Logo Empresa</label>
-            <Field name="imagePath" component={UploadFile} name="imagePath" accept='.jpg'/>
-          <div>
+        <div>
 
         <div className="row">
           <div className="col botones">
@@ -204,8 +200,7 @@ const SimpleForm = props => {
         </div>
      </div>
 
-          </div>
-        </div>
+
       </form>
     </div>
 

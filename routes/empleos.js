@@ -61,11 +61,41 @@ router.post('/nuevoEmpleo',upload.single('imagePath'), (req, res,next) => {
 });
 
 
-router.get('/', (req, res) => {
-  Empleo.find().sort({date:-1})
-    .then (empleos => {
-      return res.json(empleos);
+router.get('/:page', (req, res,next) => {
+  let perPage = 5;
+  let page = req.params.page || 1;
+  Empleo
+    .find({})
+    .skip((perPage * page) - perPage )
+    .limit(perPage)
+    .sort({date:-1})
+    .exec((err, empleos)=> {
+      Empleo.count((err, count)=> {
+        if(err) return next(err);
+        return res.json({
+          empleos,
+          current: parseInt(page  ) ,
+          pages: Math.ceil(count / perPage),
+          total: count
+        })
+      })
     })
+
+
+
+/*  Empleo.count()
+    .then(empleoCount => {
+      Empleo.find().sort({date:-1})
+        .then (empleos => {
+          return res.json({
+            empleos,
+            total: empleoCount
+            }
+          );
+        })
+    })
+*/
+
 
 });
 
