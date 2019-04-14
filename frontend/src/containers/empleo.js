@@ -39,6 +39,7 @@ class Empleo extends React.Component {
             <p>{empleo.tipoempleo} en {empleo.lugar}</p>
           </div>
         </div>
+        <hr />
         <div className="row">
           <div className="col">
             <div><h3>Descripcion</h3></div>

@@ -32,8 +32,7 @@ class listadoEmpleo extends React.Component {
 
 
 
-  console.log(current);
-  console.log(pages);
+  
 
 
 
@@ -56,7 +55,7 @@ class listadoEmpleo extends React.Component {
     const listado = this.props.listado;
     const items = [];
     const cantidad = this.props.total;
-    console.log(cantidad);
+
 
     listado.map(data => {
       items.push(

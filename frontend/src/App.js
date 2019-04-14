@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import createHistory from 'history/createBrowserHistory';
 import Navbar from './components/NavBar'
+import Footer from './components/Footer'
 
 import ListaEmpleos from './containers/listadoEmpleos'
 import FormularioEmpleo from './containers/formularioEmpleo'
@@ -28,7 +29,7 @@ class App extends Component {
             <Route exact path="/empleo/:id" component={ Empleo } />
           </Switch>
 
-
+          <Footer />
 
       </div>
       </Router>

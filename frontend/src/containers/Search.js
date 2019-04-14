@@ -22,10 +22,10 @@ const Searchbar = (props) => {
           <form>
             <div className="form-row">
               <div className="col-12 col-md-5 mb-2 mb-md-0">
-                <input type="text" className="form-control form-control-lg" placeholder="Buscar por titulo, descripcion" />
+                <input type="search" className="form-control form-control-lg" placeholder="Buscar por titulo, descripcion" />
               </div>
               <div className="col-12 col-md-5 mb-2 mb-md-0">
-                <input type="text" className="form-control form-control-lg" placeholder="Buscar por localidad" />
+                <input type="search" className="form-control form-control-lg" placeholder="Buscar por localidad" />
               </div>
               <div className="col-12 col-md-2">
                 <button type="submit" className="btn btn-block btn-lg btn-primary">Buscar</button>
