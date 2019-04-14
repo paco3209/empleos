@@ -475,5 +475,11 @@ header.masthead {
 
 .formularioTextarea{
   border: '1px solid gray';
-  
+
+}
+
+label sup {
+    color: red;
+    font-size: inherit;
+    top: 0;
 }

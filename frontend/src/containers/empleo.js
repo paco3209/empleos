@@ -36,7 +36,7 @@ class Empleo extends React.Component {
         </div>
         <div className="row">
           <div className="col">
-            <p>{empleo.tipoempleo}</p>
+            <p>{empleo.tipoempleo} en {empleo.lugar}</p>
           </div>
         </div>
         <div className="row">

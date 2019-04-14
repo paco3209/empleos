@@ -20,10 +20,10 @@ class FormularioEmpleo extends React.Component {
         website: values.website,
         comoaplicar: values.comoaplicar,
         tipoempleo: values.tipoempleo,
-        
+        lugar: values.lugar
       }
       this.props.nuevoEmpleo(Empleo)
-
+      this.props.history.push('/');
 
   }
   render () {

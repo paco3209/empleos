@@ -9,7 +9,7 @@ const EditorFieldComponent = props => {
     <ControlledEditor
       id={id}
       disabled={disabled}
-      placeholder={placeholder}
+      placeholder='ingresar descripcion'
       onChange={onChange}
       value={value}
 

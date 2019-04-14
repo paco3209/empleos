@@ -40,6 +40,7 @@ router.post('/nuevoEmpleo',upload.single('imagePath'), (req, res,next) => {
     website: req.body.website,
     comoaplicar: req.body.comoaplicar,
     tipoempleo: req.body.tipoempleo,
+    lugar: req.body.lugar
     //imagePath: req.file.path
 
   })

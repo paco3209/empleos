@@ -21,7 +21,7 @@ const SimpleForm = props => {
         </div>
         <div className="row">
           <div className="col">
-            <label for="titulo">Titulo </label>
+            <label for="titulo">Titulo <sup>*</sup> </label>
             <Field
             name="titulo"
             component="input"
@@ -34,7 +34,7 @@ const SimpleForm = props => {
 
           </div>
           <div className="col">
-            <label for="email">Email </label>
+            <label for="email">Email <sup>*</sup> </label>
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="validationTooltipUsernamePrepend">@</span>
@@ -60,7 +60,7 @@ const SimpleForm = props => {
               name="tipoempleo"
               component="input"
               type="radio"
-              value="fulltime"
+              value="Fulltime"
               className="form-check-input"
               id="inlineRadio1"
               required
@@ -72,7 +72,7 @@ const SimpleForm = props => {
               name="tipoempleo"
               component="input"
               type="radio"
-              value="parttime"
+              value="Parttime"
               className="form-check-input"
               id="inlineRadio2"
               required
@@ -84,7 +84,7 @@ const SimpleForm = props => {
               name="tipoempleo"
               component="input"
               type="radio"
-              value="pasantia"
+              value="Pasantia"
               className="form-check-input"
               id="inlineRadio3"
               required
@@ -96,7 +96,7 @@ const SimpleForm = props => {
               name="tipoempleo"
               component="input"
               type="radio"
-              value="remoto"
+              value="Remoto"
               className="form-check-input"
               id="inlineRadio4"
               required
@@ -107,7 +107,7 @@ const SimpleForm = props => {
         </div>
         <div className="row">
           <div className="col">
-            <label for="exampleFormControlTextarea1">Descripcion</label>
+            <label for="exampleFormControlTextarea1">Descripcion<sup>*</sup></label>
             <div>
               <EditorField
         key="field"
@@ -115,6 +115,8 @@ const SimpleForm = props => {
         id="inputEditorText"
         disabled={false}
         placeholder="Type here"
+
+
 
 
       />
@@ -126,7 +128,7 @@ const SimpleForm = props => {
         </div>
         <div className="row">
           <div className="col">
-              <label for="comoaplicarTextarea">Como aplicar</label>
+              <label for="comoaplicarTextarea">Como aplicar <sup>*</sup></label>
               <Field
                 name="comoaplicar"
                 component="textarea"
@@ -139,27 +141,51 @@ const SimpleForm = props => {
 
           </div>
           <div className="col">
-            <label for="Lugar">Lugar </label>
+            <label for="Lugar">Lugar <sup>*</sup> </label>
             <Field
-            name="Lugar"
-            component="input"
-            type="text"
-            placeholder="Lugar de trabajo"
-            id="Lugar"
+            name="lugar"
+            component="select"
             className="form-control"
             required
-            />
+            >
+            <option></option>
+            <option value="Buenos Aires" >Buenos Aires</option>
+				    <option value="Capital Federal" >Capital Federal</option>
+            <option value="Catamarca" >Catamarca</option>
+            <option value="Chaco" >Chaco</option>
+            <option value="Chubut" >Chubut</option>
+            <option value="Corrientes" >Corrientes</option>
+            <option value="Córdoba" >Córdoba</option>
+            <option value="Entre Ríos" >Entre Ríos</option>
+            <option value="Formosa" >Formosa</option>
+            <option value="Jujuy" >Jujuy</option>
+            <option value="La Pampa" >La Pampa</option>
+            <option value="La Rioja" >La Rioja</option>
+            <option value="Mendoza" >Mendoza</option>
+            <option value="Misiones" >Misiones</option>
+            <option value="Neuquén" >Neuquén</option>
+            <option value="Río Negro" >Río Negro</option>
+            <option value="Salta" >Salta</option>
+            <option value="San Juan" >San Juan</option>
+            <option value="San Luis" >San Luis</option>
+            <option value="Santa Cruz" >Santa Cruz</option>
+            <option value="Santa Fe" >Santa Fe</option>
+            <option value="Santiago del Estero" >Santiago del Estero</option>
+            <option value="Tierra del Fuego" >Tierra del Fuego</option>
+            <option value="Tucumán" >Tucumán</option>
+
+          </Field>
           </div>
 
         </div>
         <div className="row">
           <div className="col">
-            <h3>Datos de empresa</h3>
+            <h3>Datos de empresa </h3>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <label for="Empresa">Nombre Empresa o Recruiter </label>
+            <label for="Empresa">Nombre Empresa o Recruiter <sup>*</sup> </label>
             <Field
             name="empresa"
             component="input"

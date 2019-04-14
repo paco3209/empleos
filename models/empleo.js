@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var EmpleoSchema = new Schema({
-    
+
     titulo: {
         type: String,
         required: true
@@ -36,6 +36,11 @@ var EmpleoSchema = new Schema({
       type: String,
 
     },
+    lugar:{
+      type: String,
+      required: true
+    }
+    ,
 
     date: {
         type: Date,
