@@ -2,8 +2,8 @@ import axios from 'axios';
 import { LISTAR_EMPLEOS, NUEVO_EMPLEO,EMPLEO_UNICO  } from './types';
 
 
-export const listadoEmpleos = (page) => dispatch =>{
-  axios.get(`/empleos/${page}`)
+export const listadoEmpleos = (page, filtro) => dispatch =>{
+  axios.get(`/empleos/${page}&${filtro}`)
     .then(res => {
       console.log(res.data);
       dispatch({

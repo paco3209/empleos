@@ -31,6 +31,7 @@ const Searchbar = (props) => {
                 <button type="submit" className="btn btn-block btn-lg btn-primary">Buscar</button>
               </div>
             </div>
+
           </form>
         </div>
       </div>

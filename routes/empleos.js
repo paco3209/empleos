@@ -61,12 +61,20 @@ router.post('/nuevoEmpleo',upload.single('imagePath'), (req, res,next) => {
 
 });
 
-
-router.get('/:page', (req, res,next) => {
+//ver
+router.get('/:page&:filtro', (req, res,next) => {
   let perPage = 5;
   let page = req.params.page || 1;
+  let filtro = req.params.filtro || '.*';
+
+
+
+
   Empleo
-    .find({})
+    .find({"$or": [
+        { titulo: { '$regex': filtro, '$options': 'i' } },
+        { descripcion: { '$regex': filtro, '$options': 'i' } }
+    ]})
     .skip((perPage * page) - perPage )
     .limit(perPage)
     .sort({date:-1})

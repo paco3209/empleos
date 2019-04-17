@@ -5,7 +5,8 @@ const initialState = {
     empleoUnico: {},
     current: 1,
     pages: 0,
-    totalPages: 0
+    totalPages: 0,
+    filtro: '.*'
 }
 
 export default function(state = initialState, action ) {

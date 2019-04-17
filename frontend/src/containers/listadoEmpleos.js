@@ -18,21 +18,22 @@ class listadoEmpleo extends React.Component {
     super(props);
     this.state = {
       listado: [],
-      hasMoreItems: true
-
+      hasMoreItems: true,
+      filtro: ''
     }
   }
 
-  loadItems(page){
+  loadItems(page,filtro){
 
+  filtro='.*'
 
-  this.props.listadoEmpleos(page);
+  this.props.listadoEmpleos(page, filtro);
   const current= this.props.current
   const pages = this.props.pages
 
 
 
-  
+
 
 
 
