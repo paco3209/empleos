@@ -1,3 +1,4 @@
 export const LISTAR_EMPLEOS = 'LISTAR_EMPLEOS';
 export const NUEVO_EMPLEO = 'NUEVO_EMPLEO';
 export const EMPLEO_UNICO = 'EMPLEO_UNICO';
+export const TIPO_FILTRO = 'TIPO_FILTRO';

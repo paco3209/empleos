@@ -60,7 +60,7 @@ const SimpleForm = props => {
               name="tipoempleo"
               component="input"
               type="radio"
-              value="Fulltime"
+              value="Full-time"
               className="form-check-input"
               id="inlineRadio1"
               required
@@ -72,7 +72,7 @@ const SimpleForm = props => {
               name="tipoempleo"
               component="input"
               type="radio"
-              value="Parttime"
+              value="Part-time"
               className="form-check-input"
               id="inlineRadio2"
               required

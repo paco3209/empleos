@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LISTAR_EMPLEOS, NUEVO_EMPLEO,EMPLEO_UNICO  } from './types';
+import { LISTAR_EMPLEOS, NUEVO_EMPLEO,EMPLEO_UNICO, TIPO_FILTRO  } from './types';
 
 
 export const listadoEmpleos = (page, filtro) => dispatch =>{
@@ -11,6 +11,15 @@ export const listadoEmpleos = (page, filtro) => dispatch =>{
         payload: res.data
       })
     })
+}
+
+export const cargarFiltro = (filtro) => dispatch => {
+
+  dispatch({
+    type: TIPO_FILTRO,
+    payload: filtro
+  })
+
 }
 
 export const nuevoEmpleo = (noticia) => dispatch => {

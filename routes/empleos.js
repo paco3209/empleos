@@ -67,27 +67,28 @@ router.get('/:page&:filtro', (req, res,next) => {
   let page = req.params.page || 1;
   let filtro = req.params.filtro || '.*';
 
-
+  let query = {"$or": [
+      { titulo: { '$regex': filtro, '$options': 'i' } },
+      { descripcion: { '$regex': filtro, '$options': 'i' } }
+  ]}
 
 
   Empleo
-    .find({"$or": [
-        { titulo: { '$regex': filtro, '$options': 'i' } },
-        { descripcion: { '$regex': filtro, '$options': 'i' } }
-    ]})
+    .find(query)
     .skip((perPage * page) - perPage )
     .limit(perPage)
     .sort({date:-1})
     .exec((err, empleos)=> {
-      Empleo.count((err, count)=> {
+     Empleo.count(query).exec((err, count)=> {
         if(err) return next(err);
         return res.json({
           empleos,
-          current: parseInt(page  ) ,
+          current: page ,
           pages: Math.ceil(count / perPage),
           total: count
         })
       })
+
     })
 
 

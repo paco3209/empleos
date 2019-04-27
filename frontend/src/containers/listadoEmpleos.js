@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import Searchbar from './Search'
 import { connect } from 'react-redux';
 import {listadoEmpleos} from '../actions/empleos';
@@ -15,19 +15,38 @@ Moment.globalLocale = 'es';
 class listadoEmpleo extends React.Component {
   constructor(props){
     super(props);
-    super(props);
+
     this.state = {
       listado: [],
       hasMoreItems: true,
-      filtro: ''
+      filtro: '',
+      pages: 0
+
     }
+
   }
 
-  loadItems(page,filtro){
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevProps.filtro !== this.props.filtro) {
+      this.setState({ hasMoreItems: false, listado: [] }, () => {
+        this.loadItems(1);
+      });
+    }
+  };
 
-  filtro='.*'
+  loadItems(page){
 
-  this.props.listadoEmpleos(page, filtro);
+  var prueba = this.props.filtro;
+
+
+  if(prueba == null){
+      prueba='.*';
+  }
+
+console.log('fran');
+console.log(this.props.filtro);
+
+  this.props.listadoEmpleos(page, prueba);
   const current= this.props.current
   const pages = this.props.pages
 
@@ -86,7 +105,7 @@ class listadoEmpleo extends React.Component {
             <div className="col-lg-8 col-md-10 mx-auto">
 
               <InfiniteScroll
-                pageStart={0}
+                pageStart={this.state.pages}
                 loadMore={this.loadItems.bind(this)}
                 hasMore={this.state.hasMoreItems}
                 loader={loader}
@@ -111,7 +130,8 @@ const mapStateToProps = (state) => ({
     listado: state.empleos.listadoEmpleo,
     current: state.empleos.current,
     pages: state.empleos.pages,
-    total: state.empleos.totalPages
+    total: state.empleos.totalPages,
+    filtro: state.empleos.filtro
 })
 
 export  default connect(mapStateToProps, { listadoEmpleos })(listadoEmpleo);

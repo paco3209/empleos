@@ -1,4 +1,4 @@
-import { LISTAR_EMPLEOS, NUEVO_EMPLEO,EMPLEO_UNICO  } from '../actions/types';
+import { LISTAR_EMPLEOS, NUEVO_EMPLEO,EMPLEO_UNICO, TIPO_FILTRO  } from '../actions/types';
 
 const initialState = {
     listadoEmpleo: [],
@@ -17,7 +17,8 @@ export default function(state = initialState, action ) {
                 listadoEmpleo: [...state.listadoEmpleo, ...action.payload.empleos]  ,
                 current: action.payload.current,
                 pages: action.payload.pages,
-                totalPages: action.payload.total
+                totalPages: action.payload.total,
+
 
 
             }
@@ -31,7 +32,16 @@ export default function(state = initialState, action ) {
                 ...state,
                 empleoUnico:action.payload
               }
-          break;
+        case TIPO_FILTRO:
+                return{
+                  ...state,
+                  listadoEmpleo: [],
+                  current: 1,
+                  pages: 0,
+                  totalPages: 0,
+                  filtro: action.payload
+                }
+
         default:
             return state;
     }

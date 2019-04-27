@@ -1,8 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Typist from 'react-typist';
+import { connect } from 'react-redux';
+import {cargarFiltro} from '../actions/empleos';
 
-const Searchbar = (props) => {
+class Searchbar extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      filtro: ''
+    }
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleInput(e){
+    e.preventDefault();
+    this.setState({[e.target.name]:e.target.value})
+  }
+
+handleSubmit(e){
+  e.preventDefault();
+  this.props.cargarFiltro(this.state.filtro);
+
+
+
+}
+
+render(){
+
   return (
   <div>
     <header className="masthead text-white text-center">
@@ -19,10 +44,16 @@ const Searchbar = (props) => {
 
         </div>
         <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className="form-row">
               <div className="col-12 col-md-5 mb-2 mb-md-0">
-                <input type="search" className="form-control form-control-lg" placeholder="Buscar por titulo, descripcion" />
+                <input type="search"
+                       className="form-control form-control-lg"
+                       placeholder="Buscar por titulo, descripcion"
+                       value={this.state.filtro}
+                       onChange={this.handleInput}
+                       name="filtro"
+                        />
               </div>
               <div className="col-12 col-md-5 mb-2 mb-md-0">
                 <input type="search" className="form-control form-control-lg" placeholder="Buscar por localidad" />
@@ -39,6 +70,14 @@ const Searchbar = (props) => {
   </header>
 </div>
   )
+  }
 }
 
-export default Searchbar
+const mapStateToProps = (state) => ({
+
+
+    filtro: state.empleos.filtro
+})
+
+
+export  default connect(mapStateToProps, { cargarFiltro })(Searchbar);
