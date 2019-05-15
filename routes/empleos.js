@@ -83,7 +83,7 @@ router.get('/:page&:filtro', (req, res,next) => {
         if(err) return next(err);
         return res.json({
           empleos,
-          current: page ,
+          current: parseInt(page) ,
           pages: Math.ceil(count / perPage),
           total: count
         })

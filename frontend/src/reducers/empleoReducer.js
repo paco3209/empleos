@@ -7,6 +7,7 @@ const initialState = {
     pages: 0,
     totalPages: 0,
     filtro: '.*'
+
 }
 
 export default function(state = initialState, action ) {
@@ -40,6 +41,7 @@ export default function(state = initialState, action ) {
                   pages: 0,
                   totalPages: 0,
                   filtro: action.payload
+
                 }
 
         default:

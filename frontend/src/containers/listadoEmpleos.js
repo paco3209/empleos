@@ -20,21 +20,28 @@ class listadoEmpleo extends React.Component {
       listado: [],
       hasMoreItems: true,
       filtro: '',
-      pages: 0
+      page: 1
 
     }
-
+    this.loadItems = this.loadItems.bind(this)
+    this.renderLoadMore = this.renderLoadMore.bind(this)
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
+componentDidMount = () => {
+    this.loadItems(this.state.page)
+}
+
+componentDidUpdate = (prevProps, prevState) => {
     if (prevProps.filtro !== this.props.filtro) {
-      this.setState({ hasMoreItems: false, listado: [] }, () => {
-        this.loadItems(1);
+      this.setState({ hasMoreItems: false, listado: [] , page: 1}, () => {
+        this.loadItems(this.state.page);
       });
     }
   };
 
-  loadItems(page){
+
+  loadItems(){
+
 
   var prueba = this.props.filtro;
 
@@ -43,13 +50,17 @@ class listadoEmpleo extends React.Component {
       prueba='.*';
   }
 
-console.log('fran');
-console.log(this.props.filtro);
+this.setState({
+  page: this.state.page + 1
+})
 
-  this.props.listadoEmpleos(page, prueba);
+ var paginaSiguiente = this.state.page
+
+  this.props.listadoEmpleos(paginaSiguiente, prueba);
   const current= this.props.current
-  const pages = this.props.pages
 
+  const pages = this.props.pages
+console.log(current);
 
 
 
@@ -60,10 +71,32 @@ console.log(this.props.filtro);
     this.setState({
       hasMoreItems: false
     })
-  }
 
   }
 
+  }
+
+  renderLoadMore() {
+    var isFetching = true
+      if(this.props.current === this.props.page){
+        isFetching = true
+      }else{
+        isFetching = false
+      }
+      return (
+
+
+
+          <button className="btn btn-primary"
+                onClick={this.loadItems}
+                disabled={isFetching}
+                >
+Cargar
+        </button>
+
+
+      )
+}
 
 
   render () {
@@ -75,6 +108,9 @@ console.log(this.props.filtro);
     const listado = this.props.listado;
     const items = [];
     const cantidad = this.props.total;
+    const current = this.props.current;
+    const pages = this.props.pages;
+
 
 
     listado.map(data => {
@@ -104,15 +140,14 @@ console.log(this.props.filtro);
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
 
-              <InfiniteScroll
-                pageStart={this.state.pages}
-                loadMore={this.loadItems.bind(this)}
-                hasMore={this.state.hasMoreItems}
-                loader={loader}
-              >
-                {items}
-              </InfiniteScroll>
 
+                {items}
+                {
+                  current !== pages &&
+
+
+                  this.renderLoadMore()
+}
 
 
 
@@ -132,6 +167,7 @@ const mapStateToProps = (state) => ({
     pages: state.empleos.pages,
     total: state.empleos.totalPages,
     filtro: state.empleos.filtro
+
 })
 
 export  default connect(mapStateToProps, { listadoEmpleos })(listadoEmpleo);

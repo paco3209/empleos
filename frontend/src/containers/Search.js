@@ -77,6 +77,7 @@ const mapStateToProps = (state) => ({
 
 
     filtro: state.empleos.filtro
+    
 })
 
 
