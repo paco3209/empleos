@@ -14,7 +14,7 @@ const Contacto = (props) => {
 
     <div className="row">
       <div className="col-lg-8 col-md-10 mx-auto">
-        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+        <p className="textoContacto">Dejanos tu mensaje o sugerencia y te contactaremos lo antes posible! </p>
 
         <form name="sentMessage" id="contactForm" novalidate="">
           <div className="control-group">
@@ -27,7 +27,7 @@ const Contacto = (props) => {
           <div className="control-group">
             <div className="form-group floating-label-form-group controls">
               <label>Email</label>
-              <input type="email" className="form-control" placeholder="Email" id="email" required="" data-validation-required-message="Please enter your email address." />
+              <input type="email" className="form-control contactField" placeholder="Email" id="email" required="" data-validation-required-message="Please enter your email address." />
               <p className="help-block text-danger"></p>
             </div>
           </div>
@@ -35,14 +35,14 @@ const Contacto = (props) => {
           <div className="control-group">
             <div className="form-group floating-label-form-group controls">
               <label>Mensaje</label>
-              <textarea rows="3" className="form-control" placeholder="Mensaje" id="message" required="" data-validation-required-message="Please enter a message."></textarea>
+              <textarea rows="2" className="form-control contactField" placeholder="Mensaje" id="message" required="" data-validation-required-message="Please enter a message."></textarea>
               <p className="help-block text-danger"></p>
             </div>
           </div>
           <br />
           <div id="success"></div>
           <div className="form-group">
-            <button type="submit" className="btn btn-primary" id="sendMessageButton">Enviar</button>
+            <button type="submit" className="btn btn-primary btnEnviarMensaje" id="sendMessageButton">ENVIAR MENSAJE</button>
           </div>
         </form>
       </div>

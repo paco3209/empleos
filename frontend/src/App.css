@@ -615,3 +615,16 @@ label sup {
 .Contacto{
   margin-top: 120px;
 }
+
+.form-group{
+  margin-bottom: 0.1em;
+}
+
+
+.textoContacto{
+  margin-bottom: 0.1em;
+}
+
+.btnEnviarMensaje{
+  margin-bottom: 0.5em;
+}
