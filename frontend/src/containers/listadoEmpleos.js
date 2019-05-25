@@ -43,11 +43,11 @@ componentDidUpdate = (prevProps, prevState) => {
   loadItems(){
 
 
-  var prueba = this.props.filtro;
+  var filtroPuesto = this.props.filtro;
 
 
-  if(prueba == null){
-      prueba='.*';
+  if(filtroPuesto == null){
+      filtroPuesto='.*';
   }
 
 this.setState({
@@ -56,7 +56,7 @@ this.setState({
 
  var paginaSiguiente = this.state.page
 
-  this.props.listadoEmpleos(paginaSiguiente, prueba);
+  this.props.listadoEmpleos(paginaSiguiente, filtroPuesto);
   const current= this.props.current
 
   const pages = this.props.pages
@@ -87,11 +87,11 @@ console.log(current);
 
 
 
-          <button className="btn btn-primary"
+          <button className="btn btn-primary cargarDatos"
                 onClick={this.loadItems}
                 disabled={isFetching}
                 >
-Cargar
+Cargar mas empleos
         </button>
 
 

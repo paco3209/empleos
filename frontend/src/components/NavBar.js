@@ -20,7 +20,10 @@ const Navbar = (props) => {
             <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/publicarEmpleo">Publicar Empleo</a>
           </li>
           <li className="nav-item mx-0 mx-lg-1">
-            <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+            <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/about">Nosotros</a>
+          </li>
+          <li className="nav-item mx-0 mx-lg-1">
+            <a className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">Contacto</a>
           </li>
 
         </ul>

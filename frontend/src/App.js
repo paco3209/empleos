@@ -5,10 +5,13 @@ import store from './store';
 import createHistory from 'history/createBrowserHistory';
 import Navbar from './components/NavBar'
 import Footer from './components/Footer'
+import About from './components/About'
+import Contacto from './components/Contacto'
 
 import ListaEmpleos from './containers/listadoEmpleos'
 import FormularioEmpleo from './containers/formularioEmpleo'
 import Empleo from './containers/empleo'
+
 import './App.css';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
@@ -27,6 +30,8 @@ class App extends Component {
             <Route exact path="/" component={ ListaEmpleos } />
             <Route exact path="/publicarEmpleo" component={ FormularioEmpleo } />
             <Route exact path="/empleo/:id" component={ Empleo } />
+            <Route exact path="/about" component={ About } />
+            <Route exact path="/contacto" component={ Contacto } />
           </Switch>
 
           <Footer />

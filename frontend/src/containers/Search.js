@@ -20,7 +20,12 @@ class Searchbar extends React.Component {
 
 handleSubmit(e){
   e.preventDefault();
-  this.props.cargarFiltro(this.state.filtro);
+  if(this.state.filtro === ''){
+
+  }else{
+      this.props.cargarFiltro(this.state.filtro);
+  }
+
 
 
 
@@ -49,7 +54,7 @@ render(){
               <div className="col-12 col-md-5 mb-2 mb-md-0">
                 <input type="search"
                        className="form-control form-control-lg"
-                       placeholder="Buscar por titulo, descripcion"
+                       placeholder="Buscar por puesto"
                        value={this.state.filtro}
                        onChange={this.handleInput}
                        name="filtro"
@@ -77,7 +82,7 @@ const mapStateToProps = (state) => ({
 
 
     filtro: state.empleos.filtro
-    
+
 })
 
 

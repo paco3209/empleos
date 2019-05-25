@@ -62,15 +62,37 @@ router.post('/nuevoEmpleo',upload.single('imagePath'), (req, res,next) => {
 });
 
 //ver
-router.get('/:page&:filtro', (req, res,next) => {
+router.get('/', (req, res,next) => {
   let perPage = 5;
-  let page = req.params.page || 1;
-  let filtro = req.params.filtro || '.*';
+  let page = req.query.page || 1;
+  let filtro = req.query.filtro || '.*';
+  let filtroCiudad = req.query.filtroCiudad;
 
-  let query = {"$or": [
-      { titulo: { '$regex': filtro, '$options': 'i' } },
-      { descripcion: { '$regex': filtro, '$options': 'i' } }
-  ]}
+
+    let query = {"$or": [
+          { titulo: { '$regex': filtro, '$options': 'i' } },
+          { descripcion: { '$regex': filtro, '$options': 'i' } }
+      ]}
+
+
+  /*    "$and": [
+                {
+                  "$or": [
+                        { titulo: { '$regex': filtro, '$options': 'i' } },
+                        { descripcion: { '$regex': filtro, '$options': 'i' } }
+                      ]
+                    }
+                    ,
+                    {
+                      lugar: { '$regex': filtroCiudad, '$options': 'i' }
+                    }
+
+      ] */
+
+
+
+
+/*   */
 
 
   Empleo
