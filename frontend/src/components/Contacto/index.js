@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 
 class Contacto extends React.Component {
@@ -23,16 +24,19 @@ handleSubmit(e){
   })
 
   let data = {
-    nombre: this.state.name,
+    nombre: this.state.nombre,
     email: this.state.email,
     message: this.state.message
   }
 
-this.setState({
-  sent: true
-})
+  axios.post('/empleos/contacto', data)
+    .then( res => {
+        this.setState({ sent: true }, this.resetForm())
+    })
+    .catch( () => {
+      console.log('Message not sent')
+    })
 
-this.resetForm()
 
 }
 
@@ -74,7 +78,7 @@ handleInputChange(e){
           <div className="control-group">
             <div className="form-group floating-label-form-group controls">
               <label for="validationDefault01">Name</label>
-              <input type="text" className="form-control" placeholder="Nombre" id="name" name="nombre" value={this.state.nombre} onChange={this.handleInputChange} required />
+              <input type="text" className="form-control" placeholder="Nombre" id="nombre" name="nombre" value={this.state.nombre} onChange={this.handleInputChange} required />
               <p className="help-block text-danger"></p>
             </div>
           </div>

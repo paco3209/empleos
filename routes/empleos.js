@@ -1,7 +1,11 @@
 var express = require('express');
 var router = express.Router();
+
 const Empleo = require('../models/empleo')
+
 const multer = require('multer');
+require('dotenv').config();
+const nodemailer = require('nodemailer');
 
 
 const storage = multer.diskStorage({
@@ -150,6 +154,41 @@ router.get('/buscarEmpleo/:palabra', (req, res, next) => {
   }).then((users) => {
       res.json(users);
   });
+
+
+})
+
+router.post('/contacto', (req, res) => {
+  var data = req.body;
+
+var smptTransport = nodemailer.createTransport({
+  service: 'gmail',
+
+  auth: {
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
+        }
+});
+
+var mailOptions = {
+  from: data.email,
+  to: 'francisco_talenti@hotmail.com',
+  subject: 'Contacto Web',
+  html: `<p>${data.nombre}</p>
+          <p>${data.email}</p>
+          <p>${data.message}</p>`
+};
+
+smptTransport.sendMail(mailOptions,
+(error, response) => {
+  if(error) {
+    res.send(error)
+  }else {
+    res.send('Success')
+  }
+  smtpTransport.close();
+});
+
 
 
 })
