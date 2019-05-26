@@ -1,7 +1,61 @@
 import React from 'react'
 
 
-const Contacto = (props) => {
+class Contacto extends React.Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      nombre: '',
+      email: '',
+      message: '',
+      sent: false,
+      buttonText: 'ENVIAR MENSAJE'
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.resetForm = this.resetForm.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+handleSubmit(e){
+  e.preventDefault()
+  this.setState({
+    buttonText: '...enviando'
+  })
+
+  let data = {
+    nombre: this.state.name,
+    email: this.state.email,
+    message: this.state.message
+  }
+
+this.setState({
+  sent: true
+})
+
+this.resetForm()
+
+}
+
+resetForm(){
+  this.setState({
+    nombre: '',
+    email: '',
+    message: '',
+    buttonText: 'Mensaje Enviado'
+  })
+}
+
+handleInputChange(e){
+
+
+  this.setState({
+    [e.target.name]: e.target.value
+  })
+}
+
+
+
+  render(){
   return (
     <div className="Contacto">
 
@@ -16,18 +70,18 @@ const Contacto = (props) => {
       <div className="col-lg-8 col-md-10 mx-auto">
         <p className="textoContacto">Dejanos tu mensaje o sugerencia y te contactaremos lo antes posible! </p>
 
-        <form name="sentMessage" id="contactForm" novalidate="">
+        <form name="sentMessage" className="needs-validation" id="contactForm" novalidate onSubmit={this.handleSubmit}>
           <div className="control-group">
             <div className="form-group floating-label-form-group controls">
-              <label>Name</label>
-              <input type="text" className="form-control" placeholder="Nombre" id="name" required="" data-validation-required-message="Please enter your name." aria-invalid="false" />
+              <label for="validationDefault01">Name</label>
+              <input type="text" className="form-control" placeholder="Nombre" id="name" name="nombre" value={this.state.nombre} onChange={this.handleInputChange} required />
               <p className="help-block text-danger"></p>
             </div>
           </div>
           <div className="control-group">
             <div className="form-group floating-label-form-group controls">
               <label>Email</label>
-              <input type="email" className="form-control contactField" placeholder="Email" id="email" required="" data-validation-required-message="Please enter your email address." />
+              <input type="email" className="form-control contactField" placeholder="Email" id="email" name="email" value={this.state.email} onChange={this.handleInputChange} required />
               <p className="help-block text-danger"></p>
             </div>
           </div>
@@ -35,14 +89,14 @@ const Contacto = (props) => {
           <div className="control-group">
             <div className="form-group floating-label-form-group controls">
               <label>Mensaje</label>
-              <textarea rows="2" className="form-control contactField" placeholder="Mensaje" id="message" required="" data-validation-required-message="Please enter a message."></textarea>
+              <textarea rows="2" className="form-control contactField" placeholder="Mensaje" id="message" name="message" value={this.state.message} onChange={this.handleInputChange} required ></textarea>
               <p className="help-block text-danger"></p>
             </div>
           </div>
           <br />
           <div id="success"></div>
           <div className="form-group">
-            <button type="submit" className="btn btn-primary btnEnviarMensaje" id="sendMessageButton">ENVIAR MENSAJE</button>
+            <button type="submit"  className="btn btn-primary btnEnviarMensaje" id="sendMessageButton">{this.state.buttonText}</button>
           </div>
         </form>
       </div>
@@ -52,6 +106,7 @@ const Contacto = (props) => {
     </div>
 
   )
+}
 }
 
 export default Contacto
