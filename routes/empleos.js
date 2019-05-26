@@ -174,9 +174,9 @@ var mailOptions = {
   from: data.email,
   to: 'francisco_talenti@hotmail.com',
   subject: 'Contacto Web',
-  html: `<p>${data.nombre}</p>
-          <p>${data.email}</p>
-          <p>${data.message}</p>`
+  html: `<p>nombre: ${data.nombre}</p>
+         <p>mail: ${data.email}</p>
+          <p>mensaje: ${data.message}</p>`
 };
 
 smptTransport.sendMail(mailOptions,
