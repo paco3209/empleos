@@ -135,7 +135,7 @@ const SimpleForm = props => {
                 id="comoaplicarTextarea"
                 className="form-control"
                 rows="3"
-                placeholder="Ejemplo: Enviar cv a empleo@empleo.com"
+                placeholder="Ejemplo: Enviar cv a empleo@empleo.com / Aplicar en www.empleo.com"
                 required
                  />
 

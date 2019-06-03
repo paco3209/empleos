@@ -41,9 +41,9 @@ render(){
       <div className="row">
         <div className="col-xl-9 mx-auto">
 
-            <h2 className="mb-5"><Typist><span> Encontra un nuevo empleo </span>
-            <Typist.Backspace count={16} delay={200} />
-            <span> tu proximo empleo </span></Typist></h2>
+            <h2 className="mb-5"><Typist><span> Encontra tu primer empleo </span>
+            <Typist.Backspace count={17} delay={200} />
+            <span> un nuevo empleo </span></Typist></h2>
 
 
 
@@ -51,18 +51,16 @@ render(){
         <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
           <form onSubmit={this.handleSubmit}>
             <div className="form-row">
-              <div className="col-12 col-md-5 mb-2 mb-md-0">
+              <div className="col-12 col-md-10 mb-2 mb-md-0">
                 <input type="search"
                        className="form-control form-control-lg"
-                       placeholder="Buscar por puesto"
+                       placeholder="Buscar por puesto o descripcion"
                        value={this.state.filtro}
                        onChange={this.handleInput}
                        name="filtro"
                         />
               </div>
-              <div className="col-12 col-md-5 mb-2 mb-md-0">
-                <input type="search" className="form-control form-control-lg" placeholder="Buscar por localidad" />
-              </div>
+
               <div className="col-12 col-md-2">
                 <button type="submit" className="btn btn-block btn-lg btn-primary">Buscar</button>
               </div>
