@@ -19,7 +19,7 @@ const About = (props) => {
       <div className="about">
         <div class="row">
           <div class="col aboutus">
-            <h1>Acerca de RecuIt</h1>
+            <h1>Acerca de RecruIt</h1>
           </div>
         </div>
         <div className="row who">
