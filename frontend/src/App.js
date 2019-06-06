@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Router, Route,  Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import createHistory from 'history/createBrowserHistory';
@@ -27,7 +27,7 @@ class App extends Component {
           <Navbar />
 
           <Switch>
-            <Route path="/" component={ ListaEmpleos } />
+            <Route exact path="/" component={ ListaEmpleos } />
             <Route exact path="/publicarEmpleo" component={ FormularioEmpleo } />
             <Route exact path="/empleo/:id" component={ Empleo } />
             <Route exact path="/about" component={ About } />
