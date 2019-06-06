@@ -27,7 +27,7 @@ class App extends Component {
           <Navbar />
 
           <Switch>
-            <Route exact path="/" component={ ListaEmpleos } />
+            <Route path="/" component={ ListaEmpleos } />
             <Route exact path="/publicarEmpleo" component={ FormularioEmpleo } />
             <Route exact path="/empleo/:id" component={ Empleo } />
             <Route exact path="/about" component={ About } />
