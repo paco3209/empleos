@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"node ./bin/www\" \"cd frontend && npm start\""
+    "start": "concurrently \"node ./bin/www\" \"cd frontend && npm start\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
