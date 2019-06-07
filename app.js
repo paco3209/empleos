@@ -18,7 +18,7 @@ mongoose.connect(config.DB, { useNewUrlParser: true  }).then(
 );
 var app = express();
 // view engine setup
-//app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '/frontend/public/index.html'));
 //app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
