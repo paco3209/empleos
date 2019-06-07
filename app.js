@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./db');
-var index = require('./routes/index');
+
 var users = require('./routes/users');
 var empleos = require('./routes/empleos');
 
@@ -18,7 +18,7 @@ mongoose.connect(config.DB, { useNewUrlParser: true  }).then(
 );
 var app = express();
 // view engine setup
-app.set('views', path.join(__dirname, '/frontend/public/index.html'));
+//app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
