@@ -32,7 +32,9 @@ app.use(cookieParser());
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static('frontend/build'));
 
-  
+  app.get(/^\/(?!empleos).*/,(req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend','build','index.html'))
+  })
 
 }
 
