@@ -105,6 +105,7 @@ router.get('/', (req, res,next) => {
     .limit(perPage)
     .sort({date:-1})
     .exec((err, empleos)=> {
+      console.log(empleos);
      Empleo.count(query).exec((err, count)=> {
         if(err) return next(err);
         return res.json({

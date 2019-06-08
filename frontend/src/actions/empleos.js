@@ -3,7 +3,7 @@ import { LISTAR_EMPLEOS, NUEVO_EMPLEO,EMPLEO_UNICO, TIPO_FILTRO  } from './types
 
 
 export const listadoEmpleos = (page, filtro) => dispatch =>{
-  axios.get('/empleos',{params: {
+  axios.get('/empleos/',{params: {
     page: page,
     filtro: filtro,
     filtroCiudad: ''
