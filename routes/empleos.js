@@ -100,7 +100,7 @@ router.get('/', (req, res,next) => {
 
 
   Empleo
-    .find()
+    .find(query)
     .skip((perPage * page) - perPage )
     .limit(perPage)
     .sort({date:-1})
